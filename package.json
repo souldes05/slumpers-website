@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm rebuild canvas --update-binary && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm rebuild canvas --update-binary"
   },
   "dependencies": {
     "next": "14.0.0",
@@ -51,5 +52,8 @@
     "@types/nodemailer": "^6.4.14",
     "eslint": "^8",
     "eslint-config-next": "14.0.0"
+  },
+  "resolutions": {
+    "canvas": "2.11.2"
   }
 }

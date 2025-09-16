@@ -1,8 +1,13 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "buildCommand": "npm install --ignore-scripts && npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install",
+  "installCommand": "npm install --ignore-scripts",
+  "build": {
+    "env": {
+      "NPM_ONLY_PRODUCTION": "false"
+    }
+  },
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30,
