@@ -1,13 +1,15 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm install --ignore-scripts && npm run build",
+  "buildCommand": "npm install && npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install --ignore-scripts",
+  "installCommand": "npm install",
   "build": {
     "env": {
-      "NPM_ONLY_PRODUCTION": "false"
+      "NPM_ONLY_PRODUCTION": "false",
+      "NODE_OPTIONS": "--openssl-legacy-provider"
     }
   },
+  "nodeVersion": "18.x",
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30,

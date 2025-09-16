@@ -2,7 +2,19 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    serverComponentsExternalPackages: ['canvas'],
+    serverComponentsExternalPackages: ['canvas', 'canvas-prebuilt'],
+  },
+  // Disable webpack 5's Node.js polyfills
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        canvas: false,
+        fs: false,
+        path: false,
+      };
+    }
+    return config;
   },
   images: {
     domains: ['localhost', 'res.cloudinary.com'],
